@@ -1,6 +1,6 @@
 {
   "name": "@xinyiye811/test-trusted-publisher",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "A test package for npm OIDC trusted publisher",
   "main": "index.js",
   "scripts": {

@@ -39,6 +39,6 @@ jobs:
         run: npm test
 
       - name: Publish to npm using Lerna (with OIDC)
-        run: npm run deploy:publish -- ${{ env.PUBLISH_FROM }} -y --provenance
-        # Testing with Lerna v8.2.4 + provenance flag
+        run: npm run deploy:publish -- ${{ env.PUBLISH_FROM }} -y
+        # Lerna v9+ with OIDC - provenance is automatic!
 
