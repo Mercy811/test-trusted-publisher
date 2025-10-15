@@ -1,12 +1,13 @@
 {
   "name": "@xinyiye811/test-trusted-publisher",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A test package for npm OIDC trusted publisher",
   "main": "index.js",
   "scripts": {
     "test": "node test.js",
     "build": "echo 'Build step (if needed)'",
-    "prepublishOnly": "npm test"
+    "prepublishOnly": "npm test",
+    "deploy:publish": "lerna publish"
   },
   "keywords": [
     "oidc",
@@ -26,6 +27,9 @@
   "bugs": {
     "url": "https://github.com/Mercy811/test-trusted-publisher/issues"
   },
-  "homepage": "https://github.com/Mercy811/test-trusted-publisher#readme"
+  "homepage": "https://github.com/Mercy811/test-trusted-publisher#readme",
+  "devDependencies": {
+    "lerna": "^8.2.4"
+  }
 }
 
