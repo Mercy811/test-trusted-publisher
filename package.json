@@ -1,5 +1,5 @@
 {
-  "name": "@your-scope/oidc-test-package",
+  "name": "@xinyiye811/test-trusted-publisher",
   "version": "1.0.0",
   "description": "A test package for npm OIDC trusted publisher",
   "main": "index.js",
