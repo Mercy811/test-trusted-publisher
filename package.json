@@ -14,19 +14,18 @@
     "npm",
     "test"
   ],
-  "author": "Your Name",
+  "author": "xinyiye811",
   "license": "MIT",
   "publishConfig": {
-    "access": "public",
-    "provenance": true
+    "access": "public"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/your-username/oidc-test-package.git"
+    "url": "git+https://github.com/xinyiye811/test-trusted-publisher.git"
   },
   "bugs": {
-    "url": "https://github.com/your-username/oidc-test-package/issues"
+    "url": "https://github.com/xinyiye811/test-trusted-publisher/issues"
   },
-  "homepage": "https://github.com/your-username/oidc-test-package#readme"
+  "homepage": "https://github.com/xinyiye811/test-trusted-publisher#readme"
 }
 
