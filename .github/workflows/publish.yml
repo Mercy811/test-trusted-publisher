@@ -2,8 +2,8 @@ name: Publish Package
 
 on:
   push:
-    tags:
-      - 'v*'
+    branches:
+      - main
   workflow_dispatch:  # Allow manual triggering for testing
 
 permissions:
@@ -36,7 +36,32 @@ jobs:
       - name: Run tests
         run: npm test
 
+      - name: Check if version should be published
+        id: version-check
+        run: |
+          # Get current version from package.json
+          PACKAGE_VERSION=$(node -p "require('./package.json').version")
+          echo "Package version: $PACKAGE_VERSION"
+          
+          # Get package name
+          PACKAGE_NAME=$(node -p "require('./package.json').name")
+          echo "Package name: $PACKAGE_NAME"
+          
+          # Try to get latest version from npm
+          NPM_VERSION=$(npm view "$PACKAGE_NAME" version 2>/dev/null || echo "0.0.0")
+          echo "NPM version: $NPM_VERSION"
+          
+          # Compare versions
+          if [ "$PACKAGE_VERSION" = "$NPM_VERSION" ]; then
+            echo "Version $PACKAGE_VERSION is already published. Skipping publish."
+            echo "should_publish=false" >> $GITHUB_OUTPUT
+          else
+            echo "New version detected: $PACKAGE_VERSION (npm has $NPM_VERSION)"
+            echo "should_publish=true" >> $GITHUB_OUTPUT
+          fi
+
       - name: Publish to npm (with OIDC)
+        if: steps.version-check.outputs.should_publish == 'true'
         run: npm publish
         # No NPM_TOKEN needed - OIDC handles authentication!
 
